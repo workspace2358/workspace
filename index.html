@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>WORKSPACE • Automatizaciones con WhatsApp & Páginas Web para Negocios</title>
+  <meta name="description" content="Automatizamos tus pedidos de delivery por WhatsApp y creamos páginas web interactivas para que atiendas a tus clientes en automático.">
+
+  <!-- Favicon / Window Icon -->
+  <link rel="icon" type="image/png" href="assets/logo_w_official.png">
+  <link rel="apple-touch-icon" href="assets/logo_w_official.png">
+
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 3D Canvas Background -->
+  <canvas id="canvas-3d-workspace"></canvas>
+
+  <!-- Top Navigation -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="brand-container">
+        <div class="brand-mark">
+          <img src="assets/logo_w_official.png" alt="Logo WORKSPACE" class="brand-logo-img">
+        </div>
+        <div class="brand-titles">
+          <span class="brand-main">WORK<strong>SPACE</strong></span>
+          <span class="brand-sub">SOLUCIONES DIGITALES</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="#soluciones">Qué Hacemos</a>
+        <a href="#simulador">Probar Simulador</a>
+        <a href="#como-funciona">Paso a Paso</a>
+        <a href="#cotizador">Cotizador</a>
+        <a href="#preguntas">Dudas Frecuentes</a>
+      </nav>
+
+      <div class="header-cta">
+        <a href="https://wa.me/51965691363?text=Hola%20WORKSPACE,%20quiero%20informaci%C3%B3n%20para%20mi%20negocio" target="_blank" class="btn-whatsapp-header">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>Escribir al WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Bespoke Layout & Interactive Live Phone Simulator -->
+  <main>
+    <section class="hero-block">
+      <div class="hero-grid">
+        <div class="hero-text-col">
+          <div class="status-tag">
+            <span class="pulse-dot"></span>
+            <span>AUTOMATIZACIÓN & WEB PARA NEGOCIOS REALES</span>
+          </div>
+
+          <h1 class="hero-title">
+            Hacemos que tu negocio <span class="highlight-text">atienda y venda en automático</span> por WhatsApp y la Web.
+          </h1>
+
+          <p class="hero-description">
+            Creamos páginas web fáciles de usar y conectamos tu WhatsApp a un sistema que <strong>toma pedidos de delivery</strong>, responde preguntas sobre precios y le avisa a tu equipo para despachar sin que pierdas tiempo respondiendo uno por uno.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#simulador" class="btn-primary-action">
+              <i class="fa-solid fa-play"></i>
+              <span>Ver Cómo Funciona en Vivo</span>
+            </a>
+            <a href="#cotizador" class="btn-secondary-action">
+              <i class="fa-solid fa-calculator"></i>
+              <span>Calcular Precio</span>
+            </a>
+          </div>
+
+          <div class="practical-benefits">
+            <div class="benefit-chip">
+              <i class="fa-solid fa-clock"></i>
+              <span>Atención 24/7 sin pausas</span>
+            </div>
+            <div class="benefit-chip">
+              <i class="fa-solid fa-mobile-screen"></i>
+              <span>100% adaptado a celulares</span>
+            </div>
+            <div class="benefit-chip">
+              <i class="fa-solid fa-motorcycle"></i>
+              <span>Listo para delivery y cobros</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Phone Simulator Showcase -->
+        <div class="hero-visual-col" id="simulador">
+          <div class="phone-frame">
+            <div class="phone-top-bar">
+              <div class="phone-notch"></div>
+            </div>
+
+            <div class="phone-chat-header">
+              <div class="chat-avatar">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+              <div class="chat-contact-info">
+                <strong>Bot de Pedidos WORKSPACE</strong>
+                <span><span class="online-indicator"></span> En línea ahora</span>
+              </div>
+              <div class="chat-header-icons">
+                <i class="fa-solid fa-phone"></i>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </div>
+            </div>
+
+            <!-- Scrollable Live Chat Messages -->
+            <div class="phone-chat-body" id="phone-chat-body">
+              <div class="chat-bubble incoming">
+                <p>¡Hola! 👋 Bienvenido a nuestro servicio de atención automática. ¿Qué deseas hacer hoy?</p>
+                <span class="bubble-time">12:00 PM</span>
+              </div>
+            </div>
+
+            <!-- Interactive Quick Options Bar for Visitors -->
+            <div class="simulator-controls">
+              <span class="sim-label">👉 Haz clic en una opción para probar el bot:</span>
+              <div class="sim-buttons-grid">
+                <button type="button" class="sim-btn" onclick="simulateChat('delivery')">
+                  🛵 Pedir Delivery
+                </button>
+                <button type="button" class="sim-btn" onclick="simulateChat('menu')">
+                  📖 Ver Precios / Carta
+                </button>
+                <button type="button" class="sim-btn" onclick="simulateChat('yape')">
+                  📲 Pagar con Yape
+                </button>
+                <button type="button" class="sim-btn reset-btn" onclick="resetSimulator()">
+                  🔄 Reiniciar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clear Solutions Section (No complex jargon) -->
+    <section class="solutions-section" id="soluciones">
+      <div class="content-wrapper">
+        <div class="section-heading">
+          <span class="sub-label">LO QUE IMPLEMENTAMOS PARA TI</span>
+          <h2>Soluciones prácticas que entiendes desde el primer minuto</h2>
+          <p>Explicado en palabras sencillas: cómo ayudamos a tu restaurante, tienda o empresa a vender más.</p>
+        </div>
+
+        <div class="solutions-bento">
+          <!-- Bento Card 1: WhatsApp Delivery Bot -->
+          <div class="bento-card large-card">
+            <div class="bento-header">
+              <div class="icon-circle"><i class="fa-brands fa-whatsapp"></i></div>
+              <span class="pill-tag green">MÁS SOLICITADO</span>
+            </div>
+            <h3>1. Sistema de Pedidos y Delivery por WhatsApp</h3>
+            <p class="bento-text">
+              Tu cliente te escribe por WhatsApp para pedir comida o un producto. El bot le pregunta qué desea, anota su dirección, le da el total con el costo de envío y le envía los datos de Yape o Plin.
+            </p>
+            <div class="flow-mini-steps">
+              <div class="flow-box">
+                <i class="fa-solid fa-comment-dots"></i>
+                <span>1. Cliente pide por chat</span>
+              </div>
+              <i class="fa-solid fa-arrow-right flow-arrow"></i>
+              <div class="flow-box">
+                <i class="fa-solid fa-bell"></i>
+                <span>2. Te llega el aviso a ti</span>
+              </div>
+              <i class="fa-solid fa-arrow-right flow-arrow"></i>
+              <div class="flow-box">
+                <i class="fa-solid fa-box-open"></i>
+                <span>3. Despachas sin demoras</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento Card 2: Interactive Web / Digital Menu -->
+          <div class="bento-card">
+            <div class="bento-header">
+              <div class="icon-circle"><i class="fa-solid fa-laptop-code"></i></div>
+            </div>
+            <h3>2. Páginas Web & Cartas Digitales</h3>
+            <p class="bento-text">
+              Un sitio web moderno y muy fácil de ver en celulares. Tus clientes ven fotos reales de tus productos, eligen con un toque y arman su pedido directamente sin necesidad de descargar aplicaciones pesadas.
+            </p>
+            <ul class="clean-list">
+              <li><i class="fa-solid fa-check"></i> Carga al instante en cualquier teléfono</li>
+              <li><i class="fa-solid fa-check"></i> Botón directo de compra hacia tu WhatsApp</li>
+              <li><i class="fa-solid fa-check"></i> Opciones de vista 3D interactiva</li>
+            </ul>
+          </div>
+
+          <!-- Bento Card 3: Instant Alerts to Kitchen / Team -->
+          <div class="bento-card">
+            <div class="bento-header">
+              <div class="icon-circle"><i class="fa-solid fa-paper-plane"></i></div>
+            </div>
+            <h3>3. Notificaciones Automáticas a tu Celular</h3>
+            <p class="bento-text">
+              Cada vez que entra un pedido, una reserva o un comprobante de pago, el sistema te manda un mensaje claro a tu Telegram o WhatsApp para que tu cocinero, vendedor o motorizado actúe de inmediato.
+            </p>
+            <ul class="clean-list">
+              <li><i class="fa-solid fa-check"></i> Comandas ordenadas con nombre y dirección</li>
+              <li><i class="fa-solid fa-check"></i> Cero pedidos perdidos por olvidar responder</li>
+              <li><i class="fa-solid fa-check"></i> Control total desde tu propio teléfono</li>
+            </ul>
+          </div>
+
+          <!-- Bento Card 4: Payments & Cashless -->
+          <div class="bento-card large-card">
+            <div class="bento-header">
+              <div class="icon-circle"><i class="fa-solid fa-qrcode"></i></div>
+            </div>
+            <h3>4. Cobros Fáciles con Yape, Plin y Tarjetas</h3>
+            <p class="bento-text">
+              Facilitamos el pago a tus clientes mostrando tu código QR de Yape/Plin automáticamente o integrando cobro seguro con tarjeta. El cliente envía su captura de pantalla y el sistema te avisa para confirmar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it Works: Real Life Walkthrough -->
+    <section class="how-it-works" id="como-funciona">
+      <div class="content-wrapper">
+        <div class="section-heading">
+          <span class="sub-label">PASO A PASO</span>
+          <h2>Cómo trabajamos contigo</h2>
+          <p>Sin trámites complicados: en pocos días tienes todo funcionando en tu negocio.</p>
+        </div>
+
+        <div class="steps-row">
+          <div class="step-item">
+            <div class="step-num-badge">01</div>
+            <h4>Nos cuentas tu negocio</h4>
+            <p>Nos dices qué vendes, tus precios y cómo te gusta atender a tus clientes (por WhatsApp o llamada).</p>
+          </div>
+
+          <div class="step-item">
+            <div class="step-num-badge">02</div>
+            <h4>Armamos tu web y tu bot</h4>
+            <p>Diseñamos tu página, cargamos tus productos y programamos las respuestas automáticas de tu WhatsApp.</p>
+          </div>
+
+          <div class="step-item">
+            <div class="step-num-badge">03</div>
+            <h4>Escanear QR y ¡A vender!</h4>
+            <p>Escaneas el código QR desde tu WhatsApp como si abrieras WhatsApp Web y el sistema empieza a atender por ti.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Dynamic Portal & Sub-Screen Wizard -->
+    <section class="quote-section" id="cotizador">
+      <div class="content-wrapper">
+        <div class="quote-box">
+          
+          <!-- STAGE 1: Visual Industry Portal Selector -->
+          <div id="industry-portal-view" class="portal-stage active">
+            <div class="quote-header">
+              <span class="sub-label">CONFIGURADOR INTERACTIVO</span>
+              <h2>¿Qué tipo de negocio tienes?</h2>
+              <p>Haz clic en tu rubro para abrir tu pantalla personalizada con las mejores soluciones:</p>
+            </div>
+
+            <div class="industry-portals-grid">
+              <!-- Portal 1: Restaurante -->
+              <div class="portal-card" onclick="openIndustryConfig('restaurante')">
+                <div class="portal-glow"></div>
+                <div class="portal-icon-wrap">
+                  <i class="fa-solid fa-utensils"></i>
+                </div>
+                <span class="portal-category">GASTRONOMÍA & BARES</span>
+                <h3>Restaurante / Restobar</h3>
+                <p>Cartas virtuales con código QR por mesa, pedidos automáticos de delivery y comandas a cocina.</p>
+                <div class="portal-features-mini">
+                  <span><i class="fa-solid fa-check"></i> Carta QR en mesas</span>
+                  <span><i class="fa-solid fa-check"></i> Bot de Delivery</span>
+                  <span><i class="fa-solid fa-check"></i> Banners & Publicidad</span>
+                </div>
+                <button type="button" class="btn-portal-enter">
+                  <span>Configurar Servicios</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+
+              <!-- Portal 2: Tienda -->
+              <div class="portal-card highlight-portal" onclick="openIndustryConfig('tienda')">
+                <div class="portal-glow"></div>
+                <div class="portal-badge-top">MÁS PEDIDO</div>
+                <div class="portal-icon-wrap">
+                  <i class="fa-solid fa-bag-shopping"></i>
+                </div>
+                <span class="portal-category">COMERCIO & PRODUCTOS</span>
+                <h3>Tienda / Comercio</h3>
+                <p>Tienda virtual con catálogo online, cobros directos y asistente de WhatsApp para ventas y gastos.</p>
+                <div class="portal-features-mini">
+                  <span><i class="fa-solid fa-check"></i> Tienda Virtual</span>
+                  <span><i class="fa-solid fa-check"></i> Registro de Ventas</span>
+                </div>
+                <button type="button" class="btn-portal-enter">
+                  <span>Configurar Servicios</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+
+              <!-- Portal 3: Empresa -->
+              <div class="portal-card" onclick="openIndustryConfig('empresa')">
+                <div class="portal-glow"></div>
+                <div class="portal-icon-wrap">
+                  <i class="fa-solid fa-building"></i>
+                </div>
+                <span class="portal-category">SERVICIOS & CORPORATIVO</span>
+                <h3>Empresa / Servicios</h3>
+                <p>Sitio web profesional de captación, agente IA para citas 24/7 y alertas a tu equipo comercial.</p>
+                <div class="portal-features-mini">
+                  <span><i class="fa-solid fa-check"></i> Web Corporativa</span>
+                  <span><i class="fa-solid fa-check"></i> Agente IA Citas</span>
+                </div>
+                <button type="button" class="btn-portal-enter">
+                  <span>Configurar Servicios</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- STAGE 2: Dedicated Sub-Screen Configuration Terminal -->
+          <div id="industry-config-view" class="config-subscreen-stage">
+            <!-- Top Control Bar with Back Button -->
+            <div class="subscreen-top-bar">
+              <button type="button" class="btn-back-portal" onclick="closeIndustryConfig()">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Cambiar de Negocio</span>
+              </button>
+
+              <div class="active-industry-badge" id="active-industry-badge">
+                <i class="fa-solid fa-utensils" id="active-ind-icon"></i>
+                <span id="active-ind-title">Restaurante / Restobar</span>
+              </div>
+            </div>
+
+            <form id="calc-form" class="calc-form-container">
+              <!-- Step 1: Base Services -->
+              <div class="calc-step-block">
+                <label class="block-title" id="step1-title">1. Elige la solución ideal para tu negocio:</label>
+                <div class="calc-choices-grid" id="dynamic-services-grid">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+
+              <!-- Step 2: Addons -->
+              <div class="calc-step-block">
+                <label class="block-title" id="step2-title">2. Funciones adicionales recomendadas:</label>
+                <div class="calc-addons-grid" id="dynamic-addons-grid">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+
+              <!-- Live Calculated Summary -->
+              <div class="calc-total-banner">
+                <div class="total-text-group">
+                  <span class="total-caption">PRESUPUESTO ESTIMADO:</span>
+                  <div class="total-number-wrap">
+                    <span class="curr">S/</span>
+                    <strong class="digits" id="live-total-digits">400</strong>
+                    <span class="pen">SOLES</span>
+                  </div>
+                  <p class="selection-summary" id="live-selection-summary">Incluye servicio seleccionado.</p>
+                </div>
+
+                <button type="button" class="btn-whatsapp-quote" id="btn-send-wa-quote">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  <span>Pedir este paquete por WhatsApp</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion (Simple answers) -->
+    <section class="faq-block" id="preguntas">
+      <div class="content-wrapper">
+        <div class="section-heading">
+          <span class="sub-label">PREGUNTAS FRECUENTES</span>
+          <h2>Resolvemos tus dudas en segundos</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-accordion-item">
+            <button type="button" class="faq-btn">
+              <span>¿Tengo que saber de computadoras o programación para usar esto?</span>
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <div class="faq-body">
+              <p>No, para nada. Nosotros dejamos todo instalado y configurado. Tú solo recibes los pedidos en tu celular exactamente como si un cliente te estuviera escribiendo.</p>
+            </div>
+          </div>
+
+          <div class="faq-accordion-item">
+            <button type="button" class="faq-btn">
+              <span>¿Cómo se conecta el bot a mi número de WhatsApp?</span>
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <div class="faq-body">
+              <p>Te damos una pantalla en tu navegador con un código QR. Abres tu WhatsApp en tu celular, tocas en "Vincular dispositivo", apuntas tu cámara y listo. En 5 segundos queda conectado a tu número.</p>
+            </div>
+          </div>
+
+          <div class="faq-accordion-item">
+            <button type="button" class="faq-btn">
+              <span>¿Qué pasa si quiero cambiar precios o agregar un plato nuevo a la carta?</span>
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <div class="faq-body">
+              <p>Es súper fácil. Te enseñamos a cambiarlo en un minuto o simplemente nos escribes y nosotros actualizamos tus platos y precios por ti.</p>
+            </div>
+          </div>
+
+          <div class="faq-accordion-item">
+            <button type="button" class="faq-btn">
+              <span>¿En cuántos días tengo todo listo para empezar a vender?</span>
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <div class="faq-body">
+              <p>El tiempo habitual es de 5 a 7 días hábiles. Si tienes una urgencia para abrir tu local o empezar una campaña, tenemos la opción Express de 3 días.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Direct WhatsApp Action -->
+    <section class="final-cta">
+      <div class="content-wrapper">
+        <div class="cta-inner-card">
+          <h2>¿Quieres que tu negocio empiece a atender en automático?</h2>
+          <p>Escríbenos directamente por WhatsApp y cuéntanos qué necesitas. Te responderemos al instante con una propuesta clara y sin rodeos.</p>
+          <a href="https://wa.me/51965691363?text=Hola%20WORKSPACE,%20quiero%20automatizar%20mi%20negocio" target="_blank" class="btn-whatsapp-giant">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>Hablar con nosotros (+51 965 691 363)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="content-wrapper footer-grid">
+      <div class="footer-col-brand">
+        <span class="brand-main">WORK<strong>SPACE</strong></span>
+        <p class="footer-tagline">Soluciones Digitales • Resultados Reales</p>
+        <p class="footer-simple-text">Ayudamos a restaurantes, tiendas y emprendedores a automatizar sus pedidos y vender por internet de forma fácil.</p>
+      </div>
+
+      <div class="footer-col-nav">
+        <h4>Navegación</h4>
+        <a href="#soluciones">Qué Hacemos</a>
+        <a href="#simulador">Simulador en Vivo</a>
+        <a href="#cotizador">Calculadora de Precios</a>
+        <a href="#preguntas">Preguntas Frecuentes</a>
+      </div>
+
+      <div class="footer-col-contact">
+        <h4>Contacto Directo</h4>
+        <a href="https://wa.me/51965691363" target="_blank"><i class="fa-brands fa-whatsapp"></i> +51 965 691 363</a>
+        <span><i class="fa-solid fa-location-dot"></i> Perú • Atención para todo el país</span>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <p>© 2026 WORKSPACE. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Action Button for Mobile Users -->
+  <a href="https://wa.me/51965691363?text=Hola%20WORKSPACE,%20quiero%20informaci%C3%B3n%20para%20mi%20negocio" target="_blank" class="floating-mobile-wa" aria-label="Escribir por WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="floating-wa-label">Chat WhatsApp</span>
+  </a>
+
+  <!-- Three.js (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
